@@ -15,6 +15,10 @@ Approach : The given 2d matrix has to be divide into 4 section and need to trave
 then bottom row and the left row considering that the element already visited should not be repeated again 
 and in the spiral way whole matrix should be traversed or visited
 
+The problem statement is tried to simplify and broken down till some extent in problem_breakup_unederstanding.jpg:
+https://github.com/ankurnirm/ds/blob/main/TraverseArrayPattern/problem_breakup_unederstanding.jpg
+
+
 Logs: logs can be checked in the project directory TraverseArrayPattern/logs which can show the input array and the traversed output 
 
 Driver code: The driver code can be executed from the class TraverseArrayPattern.java with the help of main method and which will ask for inputs like coloums, rows and the elements at runtime 
