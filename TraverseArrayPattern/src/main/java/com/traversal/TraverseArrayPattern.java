@@ -10,21 +10,26 @@ public class TraverseArrayPattern {
 	
 	public int[] arrayTraversingAndPrint(int column, int rows,int[][] arrayMatrix) 
 	{
+		//Checking for Null or Empty array
 		nullorEmptyArray(arrayMatrix);
 		logger.info("Input array is : "+Arrays.deepToString(arrayMatrix));
 
 		int minRow = 0;
-		int minCol = 0;
+		int minColumn = 0;
 		int maxRow = arrayMatrix.length - 1;
 		int maxColumn = arrayMatrix[0].length - 1;
 		int totalElementsInArray = rows * column;
 		int countVar = 0;
 		int[] tempArray = new int[rows * column];
 
+		//loop for visiting total or all the elements in the array
 		while (countVar < totalElementsInArray) 
 		{
-			// Top wall traversing
-			for (int i = minCol, j = minRow; j <= maxColumn
+			/*
+			 * Matrix top wall traversing with the boundary condition so that
+			 * element visited s should not visit again in the matrix.
+			*/
+			for (int i = minColumn, j = minRow; j <= maxColumn
 					&& countVar < totalElementsInArray; j++)
 			{
 				tempArray[countVar] = arrayMatrix[i][j];
@@ -33,7 +38,7 @@ public class TraverseArrayPattern {
 
 			minRow++;
 
-			// Right wall traversing
+			// Array Matrix right wall traversing
 			for (int i = minRow, j = maxColumn; i <= maxRow
 					&& countVar < totalElementsInArray; i++) 
 			{
@@ -44,8 +49,8 @@ public class TraverseArrayPattern {
 
 			maxColumn--;
 
-			// Bottom wall traversing
-			for (int i = maxRow, j = maxColumn; j >= minCol
+			// Array matrix bottom wall traversing
+			for (int i = maxRow, j = maxColumn; j >= minColumn
 					&& countVar < totalElementsInArray; j--) 
 			{
 				tempArray[countVar] = arrayMatrix[i][j];
@@ -54,15 +59,15 @@ public class TraverseArrayPattern {
 
 			maxRow--;
 
-			// Left wall traversing
-			for (int i = maxRow, j = minCol; i >= minRow
+			//Array matrix left wall traversing
+			for (int i = maxRow, j = minColumn; i >= minRow
 					&& countVar < totalElementsInArray; i--)
 			{
 				tempArray[countVar] = arrayMatrix[i][j];
 				countVar++;
 			}
 
-			minCol++;
+			minColumn++;
 		}
 
 		logger.info("The output traversed array is: "+Arrays.toString(tempArray));
